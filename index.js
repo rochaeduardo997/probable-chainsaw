@@ -1,6 +1,7 @@
 const childProcess = require('child_process');
 const fs = require('fs');
 const os = require('os');
+const util = require('util');
 
 //GLOBAL
 var getHostname = os.hostname();
@@ -8,8 +9,8 @@ var getDate = new Date().toISOString().slice(0, 10);
 var getHour = new Date().toString().slice(16, 24);
 
 async function main() {
-  console.log('------------------------------------------------------------');
-  console.log('Backup function started at', getDate, getHour, '\n');
+  console.log('---------------------------------------------------------------------------------------');
+  console.log(`--------------------Backup function started at ${getDate} ${getHour} --------------------\n`);
 
   await Promise.all([
     mysqlBackup(),
@@ -18,9 +19,12 @@ async function main() {
 
   let getDateFinishedAt = new Date().toISOString().slice(0, 10);
   let getHourFinishedAt = new Date().toString().slice(16, 24);
-  console.log('\nBackup function finished at', getDateFinishedAt, getHourFinishedAt);
-  console.log('------------------------------------------------------------');
+
+  console.log(`\n--------------------Backup function finished at ${getDateFinishedAt} ${getHourFinishedAt}--------------------`);
+  console.log('---------------------------------------------------------------------------------------\n');
 }
+catchLogStdout();
+
 main();
 
 function mysqlBackup() {
@@ -42,7 +46,8 @@ function mysqlBackup() {
               resolve(console.log('Database backup stored at file:', databaseBackupFilename.split('./sql-bkp/').splice(1).toString()));
             } else {
               childProcess.exec(`rm -f ${databaseBackupFilename}`)
-              resolve(console.error('Failed backup database: ', error));
+              // console.error(error);
+              resolve(console.log('Failed to backup database'));
             }
           });
         } else {
@@ -70,7 +75,8 @@ function directoryBackup() {
             if (!error) {
               resolve(console.log('Compression completed, file generated:', toDirectoryName.split('./dir-bkp/').splice(1).toString()));
             } else {
-              resolve(console.error('Failed to compress directory: ', error));
+              // console.error(error);
+              resolve(console.log('Failed to compress directory'));
             }
           });
         } else {
@@ -83,4 +89,16 @@ function directoryBackup() {
       reject(console.error('Failed to compress directory: ', error));
     }
   });
+}
+
+function catchLogStdout(){
+  let logFileFull = fs.createWriteStream('./logs/full-log.txt', { flags: 'a+' });
+  let logFileLastOne = fs.createWriteStream('./logs/last-log.txt', { flags: 'w' });
+  let logStdout = process.stdout;
+  
+  console.log = (d) => {
+    logFileFull.write(util.format(d) + '\n');
+    logFileLastOne.write(util.format(d) + '\n');
+    logStdout.write(util.format(d) + '\n');
+  };
 }

@@ -1,9 +1,11 @@
 ---------------------------------------------------------------------------------------
---------------------Backup function started at 2021-02-20 18:39:11 --------------------
+--------------------Backup function started at 2021-02-21 11:13:05 --------------------
 
-Directory or file doesn't exists
-Failed to backup database
+Directory or file doesn't exists,
+  ./fileOrDirectory cannot be found
+Database communication failed, 
+  Host:localhost User:username Password:password Database:database
 
---------------------Backup function finished at 2021-02-20 18:39:11--------------------
+--------------------Backup function finished at 2021-02-21 11:13:05--------------------
 ---------------------------------------------------------------------------------------
 

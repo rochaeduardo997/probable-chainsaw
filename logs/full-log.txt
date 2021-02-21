@@ -1,45 +1,46 @@
 ---------------------------------------------------------------------------------------
---------------------Backup function started at 2021-02-20 18:39:05 --------------------
+--------------------Backup function started at 2021-02-21 11:09:15 --------------------
 
-Directory or file doesn't exists
-Failed to backup database
+Database backup stored at file: sql-bkp-Eduardo-NTB-2021-02-21.sql.bkp
+Compression completed, file generated: dir-bkp-Eduardo-NTB-2021-02-21.tar.gz
 
---------------------Backup function finished at 2021-02-20 18:39:05--------------------
+--------------------Backup function finished at 2021-02-21 11:09:15--------------------
 ---------------------------------------------------------------------------------------
 
 ---------------------------------------------------------------------------------------
---------------------Backup function started at 2021-02-20 18:39:09 --------------------
+--------------------Backup function started at 2021-02-21 11:09:27 --------------------
 
-Directory or file doesn't exists
-Failed to backup database
+Database - File already exists
+Directory - File already exists
 
---------------------Backup function finished at 2021-02-20 18:39:09--------------------
+--------------------Backup function finished at 2021-02-21 11:09:27--------------------
 ---------------------------------------------------------------------------------------
 
 ---------------------------------------------------------------------------------------
---------------------Backup function started at 2021-02-20 18:39:10 --------------------
+--------------------Backup function started at 2021-02-21 11:09:34 --------------------
 
-Directory or file doesn't exists
-Failed to backup database
+Database - File already exists
+Compression completed, file generated: dir-bkp-Eduardo-NTB-2021-02-21.tar.gz
 
---------------------Backup function finished at 2021-02-20 18:39:10--------------------
+--------------------Backup function finished at 2021-02-21 11:09:34--------------------
 ---------------------------------------------------------------------------------------
 
 ---------------------------------------------------------------------------------------
---------------------Backup function started at 2021-02-20 18:39:10 --------------------
+--------------------Backup function started at 2021-02-21 11:09:37 --------------------
 
-Directory or file doesn't exists
-Failed to backup database
+Directory - File already exists
+Database backup stored at file: sql-bkp-Eduardo-NTB-2021-02-21.sql.bkp
 
---------------------Backup function finished at 2021-02-20 18:39:10--------------------
+--------------------Backup function finished at 2021-02-21 11:09:37--------------------
 ---------------------------------------------------------------------------------------
 
 ---------------------------------------------------------------------------------------
---------------------Backup function started at 2021-02-20 18:39:11 --------------------
+--------------------Backup function started at 2021-02-21 11:13:05 --------------------
 
-Directory or file doesn't exists
-Failed to backup database
+Directory or file doesn't exists,
+  ./fileOrDirectory cannot be found
+Database communication failed, 
+  Host:localhost User:username Password:password Database:database
 
---------------------Backup function finished at 2021-02-20 18:39:11--------------------
+--------------------Backup function finished at 2021-02-21 11:13:05--------------------
 ---------------------------------------------------------------------------------------
-

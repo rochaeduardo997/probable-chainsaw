@@ -1,46 +1,42 @@
----------------------------------------------------------------------------------------
---------------------Backup function started at 2021-02-21 11:09:15 --------------------
 
-Database backup stored at file: sql-bkp-Eduardo-NTB-2021-02-21.sql.bkp
-Compression completed, file generated: dir-bkp-Eduardo-NTB-2021-02-21.tar.gz
-
---------------------Backup function finished at 2021-02-21 11:09:15--------------------
----------------------------------------------------------------------------------------
-
----------------------------------------------------------------------------------------
---------------------Backup function started at 2021-02-21 11:09:27 --------------------
-
-Database - File already exists
-Directory - File already exists
-
---------------------Backup function finished at 2021-02-21 11:09:27--------------------
----------------------------------------------------------------------------------------
-
----------------------------------------------------------------------------------------
---------------------Backup function started at 2021-02-21 11:09:34 --------------------
-
-Database - File already exists
-Compression completed, file generated: dir-bkp-Eduardo-NTB-2021-02-21.tar.gz
-
---------------------Backup function finished at 2021-02-21 11:09:34--------------------
----------------------------------------------------------------------------------------
-
----------------------------------------------------------------------------------------
---------------------Backup function started at 2021-02-21 11:09:37 --------------------
-
-Directory - File already exists
-Database backup stored at file: sql-bkp-Eduardo-NTB-2021-02-21.sql.bkp
-
---------------------Backup function finished at 2021-02-21 11:09:37--------------------
----------------------------------------------------------------------------------------
-
----------------------------------------------------------------------------------------
---------------------Backup function started at 2021-02-21 11:13:05 --------------------
+-------Started at 2021-02-22 16:57:33--------
 
 Directory or file doesn't exists,
   ./fileOrDirectory cannot be found
 Database communication failed, 
   Host:localhost User:username Password:password Database:database
 
---------------------Backup function finished at 2021-02-21 11:13:05--------------------
----------------------------------------------------------------------------------------
+-------Finished at 2021-02-22 16:57:33-------
+
+
+Telegram's API has been accessed
+
+
+
+-------Started at 2021-02-22 16:57:54--------
+
+Directory or file doesn't exists,
+  ./fileOrDirectory cannot be found
+Database communication failed, 
+  Host:localhost User:username Password:password Database:database
+
+-------Finished at 2021-02-22 16:57:54-------
+
+
+Telegram's API has been accessed
+
+
+
+-------Started at 2021-02-22 16:58:38--------
+
+Directory or file doesn't exists,
+  ./fileOrDirectory cannot be found
+Database communication failed, 
+  Host:localhost User:username Password:password Database:database
+
+-------Finished at 2021-02-22 16:58:38-------
+
+
+Telegram's API has been accessed
+
+

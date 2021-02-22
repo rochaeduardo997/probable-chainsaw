@@ -1,11 +1,14 @@
----------------------------------------------------------------------------------------
---------------------Backup function started at 2021-02-21 11:13:05 --------------------
+
+-------Started at 2021-02-22 16:58:38--------
 
 Directory or file doesn't exists,
   ./fileOrDirectory cannot be found
 Database communication failed, 
   Host:localhost User:username Password:password Database:database
 
---------------------Backup function finished at 2021-02-21 11:13:05--------------------
----------------------------------------------------------------------------------------
+-------Finished at 2021-02-22 16:58:38-------
+
+
+Telegram's API has been accessed
+
 

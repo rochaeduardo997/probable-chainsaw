@@ -2,6 +2,7 @@ const childProcess = require('child_process');
 const fs = require('fs');
 const os = require('os');
 const util = require('util');
+const https = require('https');
 
 //GLOBAL
 var getHostname = os.hostname();
@@ -9,8 +10,7 @@ var getDate = new Date().toISOString().slice(0, 10);
 var getHour = new Date().toString().slice(16, 24);
 
 async function main() {
-  console.log('---------------------------------------------------------------------------------------');
-  console.log(`--------------------Backup function started at ${getDate} ${getHour} --------------------\n`);
+  console.log(`-------Started at ${getDate} ${getHour}--------\n`);
 
   await Promise.all([
     mysqlBackup(),
@@ -20,9 +20,9 @@ async function main() {
   let getDateFinishedAt = new Date().toISOString().slice(0, 10);
   let getHourFinishedAt = new Date().toString().slice(16, 24);
 
-  console.log(`\n--------------------Backup function finished at ${getDateFinishedAt} ${getHourFinishedAt}--------------------`);
-  console.log('---------------------------------------------------------------------------------------\n');
+  console.log(`\n-------Finished at ${getDateFinishedAt} ${getHourFinishedAt}-------\n\n`);
 }
+
 catchLogStdout();
 
 main();
@@ -92,14 +92,56 @@ function directoryBackup() {
   });
 }
 
-function catchLogStdout(){
+async function catchLogStdout() {
   let logFileFull = fs.createWriteStream('./logs/full-log.txt', { flags: 'a+' });
   let logFileLastOne = fs.createWriteStream('./logs/last-log.txt', { flags: 'w' });
   let logStdout = process.stdout;
-  
-  console.log = (d) => {
-    logFileFull.write(util.format(d) + '\n');
-    logFileLastOne.write(util.format(d) + '\n');
-    logStdout.write(util.format(d) + '\n');
-  };
+
+  await createFiles(logFileFull, logFileLastOne, logStdout);
+
+  setTimeout(() => {
+    sendTelegramMessage();
+  }, 50);
+}
+
+function createFiles(logFileFull, logFileLastOne, logStdout) {
+  return new Promise((resolve, reject) => {
+    try {
+      console.log = (d) => {
+        logFileFull.write(util.format(d) + '\n');
+        logFileLastOne.write(util.format(d) + '\n');
+        logStdout.write(util.format(d) + '\n');
+      }
+
+      resolve(console.log(''));
+    } catch (error) {
+      reject(console.error('Failed to write files: ', error));
+    }
+  });
+};
+
+function sendTelegramMessage() {
+  let token = '';
+  let chatID = '';
+
+  let messageBody = fs.readFileSync('./logs/last-log.txt', 'utf-8', function (err, data) {
+    if (err) throw err;
+    return data;
+  });
+
+  let api = `https://api.telegram.org/bot${token}/sendMessage?chat_id=${chatID}&text=${messageBody}`;
+
+  https.get(api, (res) => {
+    let data = '';
+
+    res.on('data', (chunk) => {
+      data += chunk;
+    });
+
+    res.on('end', () => {
+      console.log('Telegram\'s API has been accessed\n\n');
+    });
+  }).on("error", (error) => {
+    console.log('Error: ' + error.message);
+  });
 }

@@ -1,12 +1,12 @@
 
--------Started at 2021-02-22 16:58:38--------
+-------Started at 2021-02-25 20:50:38--------
 
 Directory or file doesn't exists,
   ./fileOrDirectory cannot be found
 Database communication failed, 
   Host:localhost User:username Password:password Database:database
 
--------Finished at 2021-02-22 16:58:38-------
+-------Finished at 2021-02-25 20:50:38-------
 
 
 Telegram's API has been accessed
